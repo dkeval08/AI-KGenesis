@@ -8,3 +8,28 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+button {
+  cursor: pointer;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px; /* thinner scrollbar */
+  height: 6px; /* for horizontal scroll */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9333ea; /* Tailwind purple-600 */
+  border-radius: 9999px; /* fully rounded */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* or use a light gray */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin; /* thin scrollbar */
+  scrollbar-color: #9333ea transparent; /* thumb | track */
+}
