@@ -15,6 +15,11 @@ export const metadata = {
   title: "AI KGenesis - AI Image Generator",
   description:
     "Create, save, and share stunning AI-generated images instantly. No login required – simple, fast, and creative.",
+  icons: {
+    icon: "/logo.png", // place logo.png in /public
+    shortcut: "/logo.png",
+    apple: "/logo.png", // optional, for iOS
+  },
   openGraph: {
     title: "AI KGenesis - AI Image Generator",
     description:
@@ -23,7 +28,7 @@ export const metadata = {
     siteName: "AI KGenesis",
     images: [
       {
-        url: "https://ai-k-genesis.vercel.app/og-image.png", // ⚡ add an OG image in /public
+        url: "https://ai-k-genesis.vercel.app/logo.png", // ⚡ add an OG image in /public
         width: 1200,
         height: 630,
         alt: "AI KGenesis - Generate Stunning AI Images",
@@ -37,16 +42,16 @@ export const metadata = {
     title: "AI KGenesis - AI Image Generator",
     description:
       "Generate, save, and share AI-powered images with ease. No login required.",
-    images: ["https://ai-k-genesis.vercel.app/og-image.png"], // ⚡ same OG image
+    images: ["https://ai-k-genesis.vercel.app/logo.png"], // ⚡ same OG image
   },
 };
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/og-image.png" sizes="any" />
-        <link rel="icon" type="image/png" href="/og-image.png" />
-        <link rel="apple-touch-icon" href="/og-image.png" />
+        <link rel="icon" href="/logo.png" sizes="any" />
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

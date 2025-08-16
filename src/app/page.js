@@ -13,7 +13,7 @@ export const metadata = {
     siteName: "AI KGenesis",
     images: [
       {
-        url: "https://ai-k-genesis.vercel.app/og-image.png", // ⚡ add an OG image in /public
+        url: "https://ai-k-genesis.vercel.app/logo.png", // ⚡ add an OG image in /public
         width: 1200,
         height: 630,
         alt: "AI KGenesis - Generate Stunning AI Images",
@@ -27,7 +27,7 @@ export const metadata = {
     title: "AI KGenesis - AI Image Generator",
     description:
       "Generate, save, and share AI-powered images with ease. No login required.",
-    images: ["https://ai-k-genesis.vercel.app/og-image.png"], // ⚡ same OG image
+    images: ["https://ai-k-genesis.vercel.app/logo.png"], // ⚡ same OG image
   },
 };
 
