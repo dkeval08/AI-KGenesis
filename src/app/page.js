@@ -98,19 +98,17 @@ export default function AIImageGenerator() {
 
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {/* {["Home", "Gallery", "Tools", "Pricing", "About"].map(
-                  (item) => (
-                    <motion.a
-                      key={item}
-                      href="#"
-                      className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {item}
-                    </motion.a>
-                  )
-                )} */}
+                {["Home", "Generate", "Features", "About"].map((item) => (
+                  <motion.a
+                    key={item}
+                    href={`#${item}`}
+                    className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item}
+                  </motion.a>
+                ))}
               </div>
             </div>
 
@@ -138,17 +136,15 @@ export default function AIImageGenerator() {
               className="md:hidden bg-black/30 backdrop-blur-lg"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
-                {["Home", "Gallery", "Tools", "Pricing", "About"].map(
-                  (item) => (
-                    <a
-                      key={item}
-                      href="#"
-                      className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    >
-                      {item}
-                    </a>
-                  )
-                )}
+                {["Home", "Generate", "Features", "About"].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item}`}
+                    className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    {item}
+                  </a>
+                ))}
               </div>
             </motion.div>
           )}
@@ -156,7 +152,7 @@ export default function AIImageGenerator() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section id="Home" className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <motion.div
@@ -166,10 +162,10 @@ export default function AIImageGenerator() {
             className="text-center"
           >
             <motion.div variants={itemVariants} className="mb-8">
-              <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 mb-6">
+              <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 mb-2 md:mb-6">
                 <Zap className="h-4 w-4 text-yellow-400 mr-2" />
                 <span className="text-sm font-medium">
-                  Powered by Advanced AI
+                  Build with Stability AI
                 </span>
               </div>
             </motion.div>
@@ -182,19 +178,19 @@ export default function AIImageGenerator() {
                 Create Stunning
               </span>
               <br />
-              <span className="text-white">AI-Generated Images</span>
+              <span className="text-white mt-2">AI-Generated Images</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
+              className="text-sm  md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
             >
               Transform your imagination into reality with our state-of-the-art
               AI image generation technology. Create, customize, and download
               professional-quality images in seconds.
             </motion.p>
 
-            <motion.div
+            {/* <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
             >
@@ -216,13 +212,13 @@ export default function AIImageGenerator() {
                   <span>{stats.modelsAvailable} AI Models</span>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </section>
 
       {/* Main Generator Section */}
-      <section className="py-20 bg-black/20 backdrop-blur-lg">
+      <section id="Generate" className="py-20 bg-black/20 backdrop-blur-lg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -246,7 +242,7 @@ export default function AIImageGenerator() {
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   placeholder="Describe the image you want to create... (e.g., 'A majestic dragon flying over a crystal mountain at sunset')"
-                  className="w-full p-4 bg-black/30 backdrop-blur-lg border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none h-32 transition-all"
+                  className="w-full p-4 bg-black/30 text-sm md:text-base lg:text-lg backdrop-blur-lg border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none h-32 transition-all"
                   rows={4}
                 />
                 <div className="absolute bottom-4 right-4 flex items-center space-x-2">
@@ -274,7 +270,7 @@ export default function AIImageGenerator() {
                         }}
                         className="w-6 h-6 border-2 border-white border-t-transparent rounded-full mr-3"
                       />
-                      Generating Magic...
+                      Generating Images...
                     </div>
                   ) : (
                     <div className="flex items-center justify-center">
@@ -306,7 +302,7 @@ export default function AIImageGenerator() {
                 transition={{ delay: 0.3 }}
                 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
               >
-                Your Generated Masterpieces
+                Your Generated Images
               </motion.h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -377,7 +373,7 @@ export default function AIImageGenerator() {
       </AnimatePresence>
 
       {/* Features Section */}
-      <section className="py-20 bg-black/20 backdrop-blur-lg">
+      <section id="Features" className="py-20 bg-black/20 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -429,7 +425,10 @@ export default function AIImageGenerator() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/40 backdrop-blur-lg border-t border-white/10 py-12">
+      <footer
+        id="About"
+        className="bg-black/40 backdrop-blur-lg border-t border-white/10 py-12"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
@@ -438,7 +437,7 @@ export default function AIImageGenerator() {
                   <Sparkles className="h-6 w-6" />
                 </div>
                 <span className="font-bold text-xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  AI Genesis
+                  AI KGenesis
                 </span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
@@ -484,13 +483,6 @@ export default function AIImageGenerator() {
                 ))}
               </ul>
             </div>
-          </div>
-
-          <div className="border-t border-white/10 mt-8 pt-8 text-center text-gray-400">
-            <p>
-              &copy; 2025 AI Genesis. All rights reserved. Made with ❤️ for
-              creators worldwide.
-            </p>
           </div>
         </div>
       </footer>
