@@ -16,9 +16,9 @@ export const metadata = {
   description:
     "Create, save, and share stunning AI-generated images instantly. No login required – simple, fast, and creative.",
   icons: {
-    icon: "/icon.ico", // place icon.icon in /public
-    shortcut: "/icon.ico",
-    apple: "/icon.ico", // optional, for iOS
+    icon: "/favicon.icon", // place favicon.icon in /public
+    shortcut: "/favicon.icon",
+    apple: "/favicon.icon", // optional, for iOS
   },
   openGraph: {
     title: "AI KGenesis - AI Image Generator",
@@ -49,7 +49,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/icon.ico" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
