@@ -139,7 +139,7 @@ export default function AIImageGenerator() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
       {/* Navigation */}
-      <nav className="relative z-50 bg-black/20 backdrop-blur-lg border-b border-white/10">
+      <nav className="sticky top-0 z-100 bg-black/20 backdrop-blur-lg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -201,7 +201,7 @@ export default function AIImageGenerator() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-black/30 backdrop-blur-lg"
+              className="sticky top-0 z-100 bg-black/20 backdrop-blur-lg border-b border-white/10"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {["Home", "Generate", "Features", "About"].map((item) => (
@@ -237,7 +237,7 @@ export default function AIImageGenerator() {
             animate="visible"
             className="text-center"
           >
-            <motion.div variants={itemVariants} className="mb-8">
+            <motion.div variants={itemVariants} className="mb-4">
               <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 mb-2 md:mb-6">
                 <Zap className="h-4 w-4 text-yellow-400 mr-2" />
                 <span className="text-sm font-medium">
@@ -305,14 +305,14 @@ export default function AIImageGenerator() {
       </section>
 
       {/* Main Generator Section */}
-      <section id="Generate" className="py-20 bg-black/20 backdrop-blur-lg">
+      <section id="Generate" className="py-20 bg-black/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
+            className="bg-white/5 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/10 shadow-lg"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl"
           >
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -545,7 +545,7 @@ export default function AIImageGenerator() {
       </AnimatePresence>
 
       {/* Features Section */}
-      <section id="Features" className="py-20 bg-black/20 backdrop-blur-lg">
+      <section id="Features" className="py-20 bg-black/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -774,7 +774,7 @@ export default function AIImageGenerator() {
       </footer>
 
       <div
-        className={`fixed top-0 right-0 h-full max-w-100 bg-white shadow-lg transform transition-transform duration-300 z-50 
+        className={`fixed top-0 right-0 h-full max-w-100 bg-white shadow-lg transform transition-transform duration-300 z-999 
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* Drawer Header */}
