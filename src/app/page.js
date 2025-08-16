@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
+import Navbar from "./components/Navbar";
 import downloadAnim from "./Animations/download.json";
 import shareAnim from "./Animations/share.json";
 import favoriteAnim from "./Animations/favourite.json";
@@ -139,93 +140,12 @@ export default function AIImageGenerator() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-100 bg-black/20 backdrop-blur-lg border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <motion.div
-                className="flex items-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
-                  <Sparkles className="h-6 w-6" />
-                </div>
-                <span className="font-bold text-xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  AI KGenesis
-                </span>
-              </motion.div>
-            </div>
-
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {["Home", "Generate", "Features", "About"].map((item) => (
-                  <motion.a
-                    key={item}
-                    href={`#${item}`}
-                    className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {item}
-                  </motion.a>
-                ))}
-                <button
-                  onClick={() => setIsOpen(true)}
-                  className="flex items-center gap-2 px-4 py-2 border rounded-lg shadow hover:border-red-500 hover:text-red-500 cursor-pointer "
-                >
-                  <Heart className="w-5 h-5 text-red-500" />
-                  My Favorites ({favorites.length})
-                </button>
-              </div>
-            </div>
-
-            <div className="md:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
-              >
-                {mobileMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="sticky top-0 z-100 bg-black/20 backdrop-blur-lg border-b border-white/10"
-            >
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {["Home", "Generate", "Features", "About"].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item}`}
-                    className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
-                    {item}
-                  </a>
-                ))}
-
-                <button
-                  onClick={() => setIsOpen(true)}
-                  className="flex items-center gap-2 px-4 py-2 border rounded-lg shadow hover:border-red-500 hover:text-red-500 cursor-pointer "
-                >
-                  <Heart className="w-5 h-5 text-red-500" />
-                  My Favorites ({favorites.length})
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+      <Navbar
+        favorites={favorites}
+        setIsOpen={setIsOpen}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+      />
 
       {/* Hero Section */}
       <section id="Home" className="relative pb-12 overflow-hidden">
@@ -421,61 +341,6 @@ export default function AIImageGenerator() {
                         className="w-full h-64 object-cover transition-transform group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      {/* <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        {/* Download 
-                        <motion.button
-                          onClick={() =>
-                            handleDownload(
-                              `/api/proxy?url=${encodeURIComponent(
-                                img.image.url
-                              )}`,
-                              i
-                            )
-                          }
-                          className="p-2 bg-white/20 rounded-full hover:bg-white/30"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          <Download className="w-4 h-4" />
-                        </motion.button>
-
-                        {/* Share 
-                        <motion.button
-                          onClick={() =>
-                            handleShare(
-                              `/api/proxy?url=${encodeURIComponent(
-                                img.image.url
-                              )}`
-                            )
-                          }
-                          className="p-2 bg-white/20 rounded-full hover:bg-white/30"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          <Share2 className="w-4 h-4" />
-                        </motion.button>
-
-                        {/* Favorite 
-                        <motion.button
-                          onClick={() =>
-                            toggleFavorite(
-                              `/api/proxy?url=${encodeURIComponent(
-                                img.image.url
-                              )}`
-                            )
-                          }
-                          className={`p-2 rounded-full ${
-                            favorites.includes(
-                              `/api/proxy?url=${encodeURIComponent(
-                                img.image.url
-                              )}`
-                            )
-                              ? "bg-pink-500"
-                              : "bg-white/20 hover:bg-white/30"
-                          }`}
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          <Star className="w-4 h-4" />
-                        </motion.button>
-                      </div> */}
                     </div>
 
                     <div className="flex justify-between items-center">
@@ -825,7 +690,7 @@ export default function AIImageGenerator() {
       </footer>
 
       <div
-        className={`fixed top-0 right-0 h-full max-w-100 bg-white shadow-lg transform transition-transform duration-300 z-998 
+        className={`fixed top-0 right-0 h-full max-w-full sm:max-w-100 bg-white shadow-lg transform transition-transform duration-300 z-998 
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* Drawer Header */}
@@ -841,7 +706,7 @@ export default function AIImageGenerator() {
           {favorites.length === 0 ? (
             <p className="text-gray-500 text-center">No favorites yet</p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               {favorites.map((url, i) => (
                 <div
                   key={i}
