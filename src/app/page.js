@@ -731,42 +731,93 @@ export default function AIImageGenerator() {
                 unique images from simple text descriptions in seconds.
               </p>
               <div className="flex space-x-4">
-                {[Github, Twitter, Instagram].map((Icon, i) => (
-                  <motion.button
+                {[
+                  { Icon: Github, href: "https://github.com/dkeval08" },
+                  { Icon: Twitter, href: "https://x.com/GamerboyA65016" },
+                  {
+                    Icon: Instagram,
+                    href: "https://www.instagram.com/keval_prajapati475/",
+                  },
+                ].map(({ Icon, href }, i) => (
+                  <motion.a
                     key={i}
-                    className="p-2 bg-white/10 backdrop-blur-lg rounded-lg hover:bg-white/20 transition-all"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-white/10 backdrop-blur-lg rounded-lg hover:bg-white/20 transition-all inline-flex"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
                     <Icon className="h-5 w-5" />
-                  </motion.button>
+                  </motion.a>
                 ))}
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-300">
-                {["Features", "Pricing", "API", "Gallery"].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-white transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                ))}
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-gray-300 text-sm">
+                <li>
+                  <a
+                    href="#Home"
+                    className="hover:text-white transition-colors"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#Generate"
+                    className="hover:text-white transition-colors"
+                  >
+                    Generate
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#Features"
+                    className="hover:text-white transition-colors"
+                  >
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#About"
+                    className="hover:text-white transition-colors"
+                  >
+                    About
+                  </a>
+                </li>
               </ul>
             </div>
 
+            {/* Favorites & GitHub (optional) */}
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-gray-300">
-                {["Help Center", "Contact", "Status", "Terms"].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-white transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                ))}
+              <h4 className="text-lg font-semibold mb-4">More</h4>
+              <ul className="space-y-2 text-gray-300 text-sm">
+                <li>
+                  <button
+                    onClick={() => setIsOpen(true)}
+                    className="flex items-center gap-2 hover:text-white transition-colors"
+                  >
+                    <Heart className="w-4 h-4 text-pink-500" />
+                    My Favorites ({favorites.length})
+                  </button>
+                </li>
+
+                {/* Add this only if you have a GitHub repo */}
+                <li>
+                  <a
+                    href="https://github.com/dkeval08"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 hover:text-white transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    View on GitHub
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -774,7 +825,7 @@ export default function AIImageGenerator() {
       </footer>
 
       <div
-        className={`fixed top-0 right-0 h-full max-w-100 bg-white shadow-lg transform transition-transform duration-300 z-999 
+        className={`fixed top-0 right-0 h-full max-w-100 bg-white shadow-lg transform transition-transform duration-300 z-998 
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* Drawer Header */}
@@ -873,7 +924,7 @@ export default function AIImageGenerator() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-lg z-999 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
