@@ -16,9 +16,9 @@ export const metadata = {
   description:
     "Create, save, and share stunning AI-generated images instantly. No login required – simple, fast, and creative.",
   icons: {
-    icon: "/favicon.icon", // place favicon.icon in /public
-    shortcut: "/favicon.icon",
-    apple: "/favicon.icon", // optional, for iOS
+    icon: "/favicon.ico", // place favicon.ico in /public
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico", // optional, for iOS
   },
   openGraph: {
     title: "AI KGenesis - AI Image Generator",
